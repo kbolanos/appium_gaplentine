@@ -30,7 +30,7 @@ class AndroidTests(unittest.TestCase):
         textfields[0].send_keys('gap')
         textfields[1].send_keys('android428')
 
-        # assert
+        # login assert
         self.assertEqual('gap', textfields[0].text)
 
         # login button
@@ -54,6 +54,7 @@ class AndroidTests(unittest.TestCase):
         self.driver.find_element_by_id("com.sage.mobile:id/buttonActionBar").click()
         sleep(3)
 
+        # fill client fields
         client_fields = self.driver.find_elements_by_class_name('android.widget.EditText')
         sleep(3)
         client_fields[0].click()
@@ -84,7 +85,7 @@ class AndroidTests(unittest.TestCase):
         self.driver.find_element_by_id("com.sage.mobile:id/buttonActionBar").click()
         sleep(10)
 
-        # asserts
+        # client asserts
         client_labels = self.driver.find_elements_by_class_name('android.widget.TextView')
         sleep(5)
         self.assertEqual('GAP Client', client_labels[1].text)
@@ -93,6 +94,7 @@ class AndroidTests(unittest.TestCase):
         self.assertEqual('client@wearegap.com', client_labels[9].text)
         self.assertEqual('www.growthaccelerationpartners.com', client_labels[10].text)
 
+        # buttons
         icons = self.driver.find_elements_by_class_name('android.widget.ImageView')
 
         icons[0].click()
